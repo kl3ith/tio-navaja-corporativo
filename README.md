@@ -44,34 +44,43 @@ bandeja y los avisos de "fuera del paquete" se recalculan solos.
 
 ### Las fotografías
 
-**El menú corporativo no vino con fotos.** En lugar de usar imágenes de
-archivo que no son los platos del restaurante, cada plato lleva una lámina
+Nueve platos van con **fotografía real de Tío Navaja**, tomada del material
+que el cliente entregó para el brochure de boquitas: yakitori, carimañola,
+tostadas y los seis postres. Los archivos viven en `src/assets/photos/`,
+recortados a 4:5 con `assets-src/build-photos.py` (las fuentes originales
+están en `../tio-navaja-boquitas/assets-src/` y en
+`~/Desktop/TN_Brochures/Boquitas`; no se versionan aquí para no inflar el repo).
+
+Los otros 21 platos todavía no tienen foto. En lugar de usar imágenes de
+archivo que no son los platos del restaurante, cada uno lleva una lámina
 vectorial de la casa: fondo del color de su tiempo, recortes superpuestos,
 numeración editorial y un trazo del plato.
 
-Cuando lleguen las fotos reales:
+Para sumar una foto nueva:
 
-1. Guardar el archivo en `src/assets/photos/` — JPG o WebP, proporción 4:5,
-   idealmente 1200×1500 px.
-2. Registrarlo en [`src/data/photos.ts`](src/data/photos.ts):
+1. Guardar el archivo en `src/assets/photos/` — 4:5, 800×1000 px basta.
+2. Importarlo en [`src/data/photos.ts`](src/data/photos.ts) con el `id` del
+   plato tal como aparece en `menu.ts`:
 
 ```ts
-import tartar from '../assets/photos/tartar.jpg'
-import ceviche from '../assets/photos/ceviche.jpg'
+import ceviche from '../assets/photos/ceviche.webp'
 
-export const PHOTOS: Record<string, string> = { tartar, ceviche }
+export const PHOTOS: Record<string, string> = { ceviche /* …el resto */ }
 ```
 
-La clave es el `id` del plato en `menu.ts`. La tarjeta y el modal cambian
-solos de ilustración a fotografía, con su `alt` ya escrito. Se puede ir
-plato por plato: los que no tengan foto siguen con su lámina.
+La tarjeta y el modal cambian solos de ilustración a fotografía, con su `alt`
+ya escrito. Se puede ir plato por plato.
+
+**Ojo con las canastitas:** la foto que existe muestra la versión con camarón,
+y este menú las lleva con pork belly. Está deliberadamente sin usar hasta que
+el cliente mande la correcta.
 
 ## Funciona sin conexión
 
 Nada se carga de fuera: ni CDN, ni Google Fonts, ni imágenes remotas, ni
 analítica. Las tipografías (Playfair Display, Archivo, Caveat) se empaquetan
-desde `@fontsource`, y las ilustraciones son SVG generado en el propio
-componente. El build usa rutas relativas (`base: './'`), así que el `dist/`
+desde `@fontsource`, las fotos son WebP locales y las ilustraciones son SVG
+generado en el propio componente. El build usa rutas relativas (`base: './'`), así que el `dist/`
 se puede abrir desde un USB, un disco o cualquier hosting.
 
 ## Accesibilidad
@@ -94,7 +103,7 @@ src/
 ├── data/         menú, paquetes, tipos y registro de fotos
 ├── hooks/        estado del armador de paquete y revelado al scroll
 ├── styles/       tokens de marca y estilos globales
-├── assets/       fotografías, cuando existan
+├── assets/photos/ las fotografías en WebP
 └── config.ts     CONTACT_URL y datos del local
 ```
 
