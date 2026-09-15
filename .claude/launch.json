@@ -4,8 +4,11 @@
     {
       "name": "tio-navaja-brochure",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
-      "port": 5183,
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
+      "port": 5184,
       "autoPort": true
     }
   ]

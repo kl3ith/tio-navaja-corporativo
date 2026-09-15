@@ -47,9 +47,11 @@ bandeja y los avisos de "fuera del paquete" se recalculan solos.
 Nueve platos van con **fotografía real de Tío Navaja**, tomada del material
 que el cliente entregó para el brochure de boquitas: yakitori, carimañola,
 tostadas y los seis postres. Los archivos viven en `src/assets/photos/`,
-recortados a 4:5 con `assets-src/build-photos.py` (las fuentes originales
-están en `../tio-navaja-boquitas/assets-src/` y en
-`~/Desktop/TN_Brochures/Boquitas`; no se versionan aquí para no inflar el repo).
+recortados a 4:5 con `assets-src/build-photos.py` (las fuentes salen de la
+carpeta `assets-src` del proyecto **tio-navaja-boquitas**, y los originales del
+cliente están en `~/Desktop/TN_Brochures/Boquitas`; no se versionan aquí para
+no inflar el repo). Si el script no las encuentra, se le pasa la ruta:
+`TN_BOQUITAS_SRC=/ruta/a/assets-src python3 assets-src/build-photos.py`.
 
 Los otros 21 platos todavía no tienen foto. En lugar de usar imágenes de
 archivo que no son los platos del restaurante, cada uno lleva una lámina

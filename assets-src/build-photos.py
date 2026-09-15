@@ -2,17 +2,39 @@
 Genera las fotografías del menú en WebP 4:5 dentro de src/assets/photos/.
 
 Las fuentes son las fotos que el propio Tío Navaja entregó para el brochure
-de boquitas (`../tio-navaja-boquitas/assets-src/`, originales del cliente en
-~/Desktop/TN_Brochures/Boquitas). Sólo se usan platos que aparecen igual en
-el menú corporativo; las fuentes no se versionan para no inflar el repo.
+de boquitas. Sólo se usan platos que aparecen igual en el menú corporativo;
+las fuentes no se versionan aquí para no inflar el repo, así que el script
+las busca donde suelen estar. Si están en otro sitio:
+
+    TN_BOQUITAS_SRC=/ruta/a/assets-src python3 assets-src/build-photos.py
+
+Los originales sin recortar del cliente están en ~/Desktop/TN_Brochures/Boquitas,
+pero con otros nombres: la fuente que usa este script es la carpeta `assets-src`
+del proyecto tio-navaja-boquitas.
 
 Uso:  python3 assets-src/build-photos.py
 """
 from PIL import Image
 import os
+import sys
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-SRC = os.path.join(HERE, '..', '..', 'tio-navaja-boquitas', 'assets-src')
+CLIENTES = os.path.expanduser(
+    '~/Library/Mobile Documents/com~apple~CloudDocs/IA/Clientes'
+)
+CANDIDATES = [
+    os.environ.get('TN_BOQUITAS_SRC'),
+    os.path.join(HERE, '..', '..', 'tio-navaja-boquitas', 'assets-src'),
+    os.path.join(CLIENTES, 'PARA PRUEBAS', 'tio-navaja-boquitas', 'assets-src'),
+    os.path.join(CLIENTES, 'TIO NAVAJA', 'tio-navaja-boquitas', 'assets-src'),
+]
+SRC = next((c for c in CANDIDATES if c and os.path.isdir(c)), None)
+if SRC is None:
+    sys.exit(
+        'No encuentro las fotos fuente. Pasa la carpeta con TN_BOQUITAS_SRC=...\n'
+        'Buscadas:\n  ' + '\n  '.join(c for c in CANDIDATES if c)
+    )
+
 OUT = os.path.join(HERE, '..', 'src', 'assets', 'photos')
 os.makedirs(OUT, exist_ok=True)
 
