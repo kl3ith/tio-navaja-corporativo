@@ -64,9 +64,16 @@ export function Menu({ builder }: Props) {
     const id = sectionFromHash()
     if (window.location.hash.slice(1) === id) {
       // Quien abre un enlace a una sección espera aterrizar en el menú,
-      // no en la portada con la pestaña cambiada.
-      centerTab(id)
-      document.getElementById('menu')?.scrollIntoView({ behavior: 'auto' })
+      // no en la portada con la pestaña cambiada. Hay que esperar a que
+      // carguen las tipografías: cambian la altura de todo lo de arriba
+      // y el scroll acabaría en cualquier parte.
+      const land = () => {
+        centerTab(id)
+        document.getElementById('menu')?.scrollIntoView({ behavior: 'auto' })
+      }
+      const fonts = (document as Document & { fonts?: FontFaceSet }).fonts
+      if (fonts?.ready) fonts.ready.then(() => requestAnimationFrame(land))
+      else requestAnimationFrame(land)
     }
     const onHashChange = () => goTo(sectionFromHash())
     window.addEventListener('hashchange', onHashChange)
