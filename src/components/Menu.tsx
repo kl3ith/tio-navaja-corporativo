@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { DISHES, SECTIONS, dishesOf } from '../data/menu'
 import { COURSE_LABEL } from '../data/packages'
 import type { Dish, GroupId, SectionId } from '../data/types'
@@ -11,8 +11,14 @@ interface Props {
   builder: Builder
 }
 
+/** Permite enlazar directo a una sección: .../#postres */
+const sectionFromHash = (): SectionId => {
+  const hash = typeof window !== 'undefined' ? window.location.hash.slice(1) : ''
+  return SECTIONS.some((s) => s.id === hash) ? (hash as SectionId) : 'entradas'
+}
+
 export function Menu({ builder }: Props) {
-  const [section, setSection] = useState<SectionId>('entradas')
+  const [section, setSection] = useState<SectionId>(sectionFromHash)
   const [group, setGroup] = useState<GroupId>('frias')
   const [open, setOpen] = useState<Dish | null>(null)
   const tabRefs = useRef<Record<string, HTMLButtonElement | null>>({})
@@ -47,7 +53,26 @@ export function Menu({ builder }: Props) {
     setSection(id)
     if (id === 'entradas') setGroup('frias')
     centerTab(id)
+    // El hash refleja la sección abierta, para poder compartir el enlace.
+    // replaceState no ensucia el historial: el botón atrás sigue saliendo
+    // del brochure, que es lo que la gente espera.
+    window.history.replaceState(null, '', `#${id}`)
   }
+
+  // Si la página se abre con #postres, hay que llevar la barra hasta ahí.
+  useEffect(() => {
+    const id = sectionFromHash()
+    if (window.location.hash.slice(1) === id) {
+      // Quien abre un enlace a una sección espera aterrizar en el menú,
+      // no en la portada con la pestaña cambiada.
+      centerTab(id)
+      document.getElementById('menu')?.scrollIntoView({ behavior: 'auto' })
+    }
+    const onHashChange = () => goTo(sectionFromHash())
+    window.addEventListener('hashchange', onHashChange)
+    return () => window.removeEventListener('hashchange', onHashChange)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
   const current = SECTIONS.find((s) => s.id === section)!
   const hasGroups = !!current.groups
