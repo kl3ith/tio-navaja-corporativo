@@ -1,0 +1,58 @@
+.modal {
+  position: fixed;
+  inset: 0;
+  z-index: 200;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  background: rgba(7, 32, 31, 0.82);
+  padding: 0;
+  animation: modal-fade var(--dur) var(--ease);
+}
+
+.modal__panel {
+  position: relative;
+  width: 100%;
+  max-width: 100%;
+  /* Pantalla completa en móvil, con respeto por el notch */
+  max-height: 100dvh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+  background: var(--ink);
+  border: 0;
+  padding-bottom: env(safe-area-inset-bottom);
+  animation: modal-rise var(--dur-slow) var(--ease);
+}
+
+@keyframes modal-fade {
+  from {
+    opacity: 0;
+  }
+}
+@keyframes modal-rise {
+  from {
+    transform: translateY(3%);
+  }
+}
+
+@media (min-width: 768px) {
+  .modal {
+    align-items: center;
+    padding: var(--space-m);
+  }
+  .modal__panel {
+    max-width: 960px;
+    height: auto;
+    max-height: calc(100dvh - 3rem);
+    border: 1px solid var(--rule-strong);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .modal,
+  .modal__panel {
+    animation: none;
+  }
+}

@@ -1,0 +1,120 @@
+.dm {
+  position: relative;
+  display: grid;
+  background: var(--ink);
+  min-height: 100%;
+}
+
+.dm__close {
+  position: absolute;
+  top: var(--space-2xs);
+  right: var(--space-2xs);
+  z-index: 3;
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  background: var(--ink);
+  color: var(--cream);
+  border: 1px solid var(--rule-strong);
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .dm__close:hover {
+    background: var(--orange);
+    color: var(--ink);
+    border-color: var(--orange);
+  }
+}
+
+.dm__media {
+  position: relative;
+  background: var(--course-bg);
+  overflow: hidden;
+}
+
+.dm__media .dish-art {
+  width: 100%;
+}
+
+.dm__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xs);
+  padding: var(--space-m) var(--space-s) var(--space-l);
+}
+
+.dm__course {
+  color: var(--orange);
+}
+
+.dm__title {
+  font-size: var(--step-3);
+  line-height: 1.04;
+}
+
+.dm__desc {
+  font-size: var(--step-0);
+  color: var(--fg-muted);
+  line-height: 1.6;
+  max-width: 52ch;
+}
+
+.dm__desc--plain {
+  font-style: italic;
+  color: var(--fg-faint);
+}
+
+.dm__rule {
+  margin-block: var(--space-2xs);
+}
+
+.dm__meta {
+  font-size: var(--step--1);
+  color: var(--fg-muted);
+}
+.dm__meta strong {
+  color: var(--cream);
+}
+
+.dm__warn {
+  font-size: var(--step--1);
+  line-height: 1.5;
+  color: var(--cream);
+  background: var(--wine-700);
+  border-left: 3px solid var(--orange);
+  padding: var(--space-xs);
+}
+
+.dm__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+  margin-top: var(--space-2xs);
+}
+
+.dm__back {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .dm {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    align-items: stretch;
+  }
+  .dm__media {
+    height: 100%;
+  }
+  .dm__media .dish-art {
+    height: 100%;
+    max-height: none;
+  }
+  .dm__body {
+    padding: var(--space-l) var(--space-l) var(--space-l) var(--space-m);
+    justify-content: center;
+  }
+  .dm__back {
+    display: inline-flex;
+  }
+}

@@ -1,0 +1,12 @@
+.app {
+  transition: padding-bottom var(--dur-slow) var(--ease);
+}
+
+/* Con la bandeja visible, nada queda tapado: ni el contenido ni el foco */
+.app.has-tray {
+  padding-bottom: 5.25rem;
+}
+
+html:has(.app.has-tray) {
+  scroll-padding-bottom: 6.5rem;
+}

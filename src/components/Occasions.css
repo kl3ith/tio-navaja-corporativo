@@ -1,0 +1,99 @@
+.occasions {
+  padding-block: var(--space-xl);
+  border-bottom: 1px solid var(--rule);
+}
+
+.occasions__head {
+  margin-bottom: var(--space-l);
+  max-width: 22ch;
+}
+
+.occasions__title {
+  font-size: var(--step-4);
+  text-transform: uppercase;
+  margin-top: var(--space-2xs);
+}
+
+.occasions__title em {
+  font-style: italic;
+  text-transform: none;
+  color: var(--orange);
+}
+
+.occasions__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-2xs);
+}
+
+.occasions__item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: var(--space-xs);
+  min-height: 42vw;
+  padding: var(--space-s);
+  background: var(--course-bg);
+  color: var(--cream);
+  overflow: hidden;
+}
+
+/* Rompe la cuadrícula: dos piezas más altas, composición asimétrica */
+.occasions__item:nth-child(2),
+.occasions__item:nth-child(3) {
+  margin-top: var(--space-m);
+}
+
+.occasions__item[data-course='postre'] {
+  color: var(--wine-900);
+}
+
+.occasions__index {
+  position: absolute;
+  top: 0.35rem;
+  right: 0.7rem;
+  font-family: var(--font-display);
+  font-size: clamp(3.5rem, 14vw, 6rem);
+  font-weight: 700;
+  line-height: 1;
+  opacity: 0.22;
+}
+
+.occasions__icon {
+  width: clamp(48px, 13vw, 72px);
+  height: auto;
+  color: var(--course-pop);
+}
+
+.occasions__label {
+  /* Debe caber en media columna a 360 px sin recortarse */
+  font-size: clamp(0.95rem, 3.9vw, 1.45rem);
+  text-transform: uppercase;
+  letter-spacing: -0.015em;
+  overflow-wrap: break-word;
+  hyphens: auto;
+}
+
+.occasions__note {
+  margin-top: var(--space-m);
+  max-width: 44ch;
+  font-size: var(--step--1);
+  color: var(--fg-faint);
+  border-left: 2px solid var(--wine-500);
+  padding-left: var(--space-xs);
+}
+
+@media (min-width: 700px) {
+  .occasions__grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+  .occasions__item {
+    min-height: 19vw;
+    padding: var(--space-m);
+  }
+  .occasions__item:nth-child(2),
+  .occasions__item:nth-child(3) {
+    margin-top: var(--space-l);
+  }
+}

@@ -1,0 +1,88 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 120;
+  background: transparent;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+  border-bottom: 1px solid transparent;
+  padding-top: env(safe-area-inset-top);
+}
+
+.nav.is-solid {
+  background: rgba(10, 10, 10, 0.94);
+  border-bottom-color: var(--rule);
+  backdrop-filter: none;
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  gap: var(--space-s);
+  min-height: 4.25rem;
+}
+
+.nav__brand {
+  display: grid;
+  text-decoration: none;
+  margin-right: auto;
+  line-height: 1.05;
+}
+
+.nav__brand-name {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.nav__brand-sub {
+  font-size: 0.66rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--orange);
+}
+
+.nav__links {
+  display: none;
+}
+
+.nav__links ul {
+  display: flex;
+  gap: var(--space-m);
+}
+
+.nav__links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  color: var(--fg-muted);
+  transition: color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .nav__links a:hover {
+    color: var(--orange);
+  }
+}
+
+.nav__cta {
+  padding: 0.6rem 1.1rem;
+  font-size: 0.7rem;
+}
+
+@media (min-width: 900px) {
+  .nav__links {
+    display: block;
+    margin-right: var(--space-m);
+  }
+  .nav__cta {
+    padding: 0.7rem 1.4rem;
+    font-size: var(--step--1);
+  }
+}

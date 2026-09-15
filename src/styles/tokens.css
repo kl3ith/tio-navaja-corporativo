@@ -1,0 +1,94 @@
+/* =========================================================
+   TÍO NAVAJA · Menú corporativo
+   Tokens de marca. Ningún componente usa hex crudos.
+   ========================================================= */
+:root {
+  /* ── Color ───────────────────────────────────────────── */
+  --ink: #0a0a0a;
+  --ink-soft: #141312;
+
+  --petrol-900: #07201f;
+  --petrol-800: #0b2e2c;
+  --petrol-700: #0f3e3b;
+  --petrol-500: #17605b;
+
+  --wine-900: #3f0f1c;
+  --wine-700: #5e1729;
+  --wine-500: #7c1f34;
+
+  --orange: #e2662a;
+  --orange-bright: #f0813c;
+
+  --cream: #f3e7d3;
+  --cream-dim: #cfc0a8;
+  --cream-faint: #978b79;
+
+  /* Roles semánticos */
+  --bg: var(--ink);
+  --fg: var(--cream);
+  --fg-muted: var(--cream-dim);
+  --fg-faint: var(--cream-faint);
+  --accent: var(--orange);
+  --accent-on: var(--ink);
+  --rule: rgba(243, 231, 211, 0.18);
+  --rule-strong: rgba(243, 231, 211, 0.4);
+  --focus: var(--orange-bright);
+
+  /* ── Tipografía ──────────────────────────────────────── */
+  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Caveat', 'Bradley Hand', cursive;
+
+  /* Escala fluida — mobile-first, sin saltos bruscos */
+  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
+  --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
+  --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.05rem);
+  --step-3: clamp(1.95rem, 1.6rem + 1.8vw, 3rem);
+  --step-4: clamp(2.6rem, 1.9rem + 3.4vw, 4.6rem);
+  --step-5: clamp(3.4rem, 2rem + 6.4vw, 7.5rem);
+
+  /* ── Espaciado ───────────────────────────────────────── */
+  --space-3xs: 0.25rem;
+  --space-2xs: 0.5rem;
+  --space-xs: 0.75rem;
+  --space-s: 1rem;
+  --space-m: 1.5rem;
+  --space-l: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+
+  /* ── Otros ───────────────────────────────────────────── */
+  --maxw: 1240px;
+  --gutter: clamp(1.15rem, 4vw, 3.5rem);
+  --tap: 44px;
+  --dur-fast: 140ms;
+  --dur: 240ms;
+  --dur-slow: 420ms;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+
+  /* Grano de papel: SVG en data-URI, sin peticiones externas */
+  --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
+}
+
+/* Colores por tiempo/sección — identifican cada familia del menú */
+[data-course='entrada'] {
+  --course-bg: var(--petrol-800);
+  --course-ink: var(--petrol-900);
+  --course-pop: var(--orange);
+}
+[data-course='fuerte'] {
+  --course-bg: var(--wine-700);
+  --course-ink: var(--wine-900);
+  --course-pop: var(--cream);
+}
+[data-course='acompanamiento'] {
+  --course-bg: var(--petrol-500);
+  --course-ink: var(--petrol-700);
+  --course-pop: var(--cream);
+}
+[data-course='postre'] {
+  --course-bg: var(--orange);
+  --course-ink: var(--wine-700);
+  --course-pop: var(--wine-900);
+}

@@ -1,0 +1,173 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background: var(--ink-soft);
+  border: 1px solid var(--rule);
+  transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
+}
+
+.card--in {
+  border-color: var(--orange);
+}
+.card--extra {
+  border-color: var(--wine-500);
+  border-style: dashed;
+}
+
+@media (hover: hover) {
+  .card:hover {
+    transform: translateY(-3px);
+    border-color: var(--rule-strong);
+  }
+  .card--in:hover {
+    border-color: var(--orange-bright);
+  }
+}
+
+/* ── Lámina ──────────────────────────────────────────────── */
+.card__media {
+  position: relative;
+  overflow: hidden;
+}
+
+.card__badge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 0.66rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35rem 0.6rem;
+}
+
+.card__badge--extra {
+  background: var(--wine-500);
+  color: var(--cream);
+}
+
+.card__zoom {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: var(--tap);
+  height: var(--tap);
+  display: grid;
+  place-items: center;
+  background: rgba(10, 10, 10, 0.72);
+  color: var(--cream);
+  border: 0;
+  transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .card__zoom:hover {
+    background: var(--orange);
+    color: var(--ink);
+  }
+}
+
+/* ── Cuerpo ──────────────────────────────────────────────── */
+.card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2xs);
+  padding: var(--space-s);
+  flex: 1;
+}
+
+.card__name {
+  font-size: var(--step-1);
+  line-height: 1.12;
+}
+
+.card__name-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  transition: color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .card__name-btn:hover {
+    color: var(--orange);
+  }
+}
+
+.card__desc {
+  font-size: var(--step--1);
+  color: var(--fg-muted);
+  line-height: 1.5;
+}
+
+.card__action {
+  margin-top: auto;
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-height: var(--tap);
+  padding: 0.5rem 0.9rem 0.5rem 0.5rem;
+  background: transparent;
+  border: 1px solid var(--rule-strong);
+  color: var(--cream);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  transition:
+    background-color var(--dur) var(--ease),
+    border-color var(--dur) var(--ease),
+    color var(--dur) var(--ease);
+}
+
+.card__action-icon {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--cream);
+  color: var(--ink);
+  flex: 0 0 auto;
+}
+
+.card--in .card__action,
+.card--extra .card__action {
+  background: var(--orange);
+  border-color: var(--orange);
+  color: var(--ink);
+}
+.card--in .card__action-icon,
+.card--extra .card__action-icon {
+  background: var(--ink);
+  color: var(--orange);
+}
+.card--extra .card__action {
+  background: var(--wine-500);
+  border-color: var(--wine-500);
+  color: var(--cream);
+}
+.card--extra .card__action-icon {
+  background: var(--cream);
+  color: var(--wine-700);
+}
+
+@media (hover: hover) {
+  .card__action:hover {
+    border-color: var(--orange);
+    color: var(--orange);
+  }
+  .card--in .card__action:hover,
+  .card--extra .card__action:hover {
+    background: var(--cream);
+    border-color: var(--cream);
+    color: var(--ink);
+  }
+}
