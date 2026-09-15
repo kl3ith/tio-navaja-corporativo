@@ -1,0 +1,52 @@
+.quote-copy {
+  min-width: 12rem;
+}
+
+.quote-preview {
+  border: 1px solid var(--rule);
+  border-left: 3px solid var(--orange);
+}
+
+.quote-preview summary {
+  display: flex;
+  align-items: center;
+  min-height: var(--tap);
+  padding: 0.5rem var(--space-xs);
+  font-size: var(--step--1);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--fg-muted);
+  cursor: pointer;
+  transition: color var(--dur) var(--ease);
+}
+
+@media (hover: hover) {
+  .quote-preview summary:hover {
+    color: var(--orange);
+  }
+}
+
+.quote-preview[open] summary {
+  color: var(--cream);
+  border-bottom: 1px solid var(--rule);
+}
+
+.quote-preview__text {
+  margin: 0;
+  padding: var(--space-xs);
+  max-height: 15rem;
+  overflow-y: auto;
+  font-family: var(--font-sans);
+  font-size: var(--step--1);
+  line-height: 1.55;
+  color: var(--fg-muted);
+  white-space: pre-wrap;
+  overflow-wrap: break-word;
+}
+
+.quote-preview__note {
+  padding: 0 var(--space-xs) var(--space-xs);
+  font-size: var(--step--1);
+  color: var(--fg-faint);
+}

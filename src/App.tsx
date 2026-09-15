@@ -19,14 +19,14 @@ export default function App() {
         Saltar al contenido
       </a>
 
-      <Nav />
+      <Nav builder={builder} />
 
       <main id="contenido">
         <Cover />
         <Occasions />
         <Packages builder={builder} />
         <Menu builder={builder} />
-        <FinalCta />
+        <FinalCta builder={builder} />
       </main>
 
       <Footer />

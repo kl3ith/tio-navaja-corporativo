@@ -1,8 +1,8 @@
 import { useState } from "react";
-import { CONTACT_URL } from "../config";
 import { COURSE_LABEL, COURSE_ORDER, PACKAGES } from "../data/packages";
 import type { Builder } from "../hooks/usePackageBuilder";
 import { Modal } from "./Modal";
+import { CopyQuoteButton, QuoteLink, QuotePreview } from "./QuoteActions";
 import "./Tray.css";
 
 interface Props {
@@ -209,15 +209,11 @@ export function Tray({ builder }: Props) {
             </p>
           )}
 
+          <QuotePreview builder={builder} />
+
           <div className="sheet__foot">
-            <a
-              className="btn btn--primary"
-              href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Solicitar cotización
-            </a>
+            <QuoteLink builder={builder}>Solicitar cotización</QuoteLink>
+            <CopyQuoteButton builder={builder} />
             <button
               type="button"
               className="btn btn--ghost"
@@ -228,8 +224,8 @@ export function Tray({ builder }: Props) {
           </div>
 
           <p className="sheet__note">
-            Esta selección es una demostración visual del paquete, no un pedido
-            confirmado.
+            Al solicitar la cotización se abre el mensaje ya escrito con esta
+            selección. Es una propuesta para conversar, no un pedido confirmado.
           </p>
         </div>
       </Modal>

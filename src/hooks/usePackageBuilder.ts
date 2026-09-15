@@ -41,8 +41,6 @@ export interface Builder {
   totalAllowance: number
   totalExtra: number
   isComplete: boolean
-  /** Resumen en texto plano, para el mensaje de cotización. */
-  summaryText: () => string
 }
 
 export function usePackageBuilder(initialPackage = PACKAGES[0].id): Builder {
@@ -118,21 +116,6 @@ export function usePackageBuilder(initialPackage = PACKAGES[0].id): Builder {
     [selection, pkg],
   )
 
-  const summaryText = useCallback(() => {
-    const lines = [`Paquete $${pkg.price} — Menú corporativo Tío Navaja`, '']
-    for (const course of COURSE_ORDER) {
-      const s = status[course]
-      if (!s.dishes.length) continue
-      lines.push(
-        ...s.dishes.map((dish, i) => {
-          const extra = i >= s.allowance ? '  (fuera del paquete — a consultar)' : ''
-          return `• ${dish.name}${extra}`
-        }),
-      )
-    }
-    return lines.join('\n')
-  }, [pkg, status])
-
   return {
     pkg,
     packageId,
@@ -146,6 +129,5 @@ export function usePackageBuilder(initialPackage = PACKAGES[0].id): Builder {
     positionOf,
     status,
     ...totals,
-    summaryText,
   }
 }

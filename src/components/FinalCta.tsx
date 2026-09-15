@@ -1,6 +1,8 @@
-import { CONTACT_URL, CONTACT_LABEL, VENUE } from '../config'
+import { CONTACT_LABEL, VENUE } from '../config'
 import tio from '../assets/brand/tio-oscuro.webp'
 import firma from '../assets/brand/firma-cream.png'
+import { QuoteLink } from './QuoteActions'
+import type { Builder } from '../hooks/usePackageBuilder'
 import './FinalCta.css'
 
 const LINES = [
@@ -10,7 +12,7 @@ const LINES = [
   'Una ocasión especial.',
 ]
 
-export function FinalCta() {
+export function FinalCta({ builder }: { builder: Builder }) {
   return (
     <section className="final" id="cotizar" aria-labelledby="final-title">
       <span className="pattern pattern--atomo final__pattern" aria-hidden="true" />
@@ -33,14 +35,9 @@ export function FinalCta() {
           </p>
 
           <div className="final__actions reveal">
-            <a
-              className="btn btn--ink final__btn"
-              href={CONTACT_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <QuoteLink builder={builder} className="btn btn--ink final__btn">
               Solicitar cotización
-            </a>
+            </QuoteLink>
             <p className="final__channel">
               {CONTACT_LABEL} · {VENUE.hours}
             </p>

@@ -32,6 +32,19 @@ Es a donde van los botones **Cotizar** y **Solicitar cotización**. Se puede
 apuntar a un formulario, un correo o una landing sin tocar nada más.
 En el mismo archivo están la dirección y el horario del pie de página.
 
+### El mensaje que se envía
+
+Los botones de cotización no abren un WhatsApp en blanco: llevan el mensaje
+ya escrito con lo que la persona eligió — paquete, platos por tiempo, lo que
+le falta por definir y lo que pidió fuera del paquete. Lo arma
+[`src/lib/quote.ts`](src/lib/quote.ts), y en la hoja *La mesa que armaste* se
+puede desplegar para leerlo antes de enviarlo o copiarlo al portapapeles.
+
+Sólo se prellenan los canales cuyo formato conocemos, WhatsApp y `mailto:`.
+Si `CONTACT_URL` apunta a otra cosa —un formulario, una landing— el enlace se
+abre tal cual, sin inventarle parámetros que ese destino no entendería, y la
+vista previa avisa de que hay que copiar el texto a mano.
+
 ### Los platos y los paquetes
 
 - [`src/data/menu.ts`](src/data/menu.ts) — los 30 platos, con su tiempo
@@ -103,6 +116,7 @@ se puede abrir desde un USB, un disco o cualquier hosting.
 src/
 ├── components/   una pieza de UI + su CSS, en pareja
 ├── data/         menú, paquetes, tipos y registro de fotos
+├── lib/          el mensaje de cotización y su enlace
 ├── hooks/        estado del armador de paquete y revelado al scroll
 ├── styles/       tokens de marca y estilos globales
 ├── assets/photos/ las fotografías en WebP

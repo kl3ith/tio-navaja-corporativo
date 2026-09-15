@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
-import { CONTACT_URL } from '../config'
 import logo from '../assets/brand/logo-horizontal-cream.png'
+import { QuoteLink } from './QuoteActions'
+import type { Builder } from '../hooks/usePackageBuilder'
 import './Nav.css'
 
 const LINKS = [
@@ -9,7 +10,7 @@ const LINKS = [
   { href: '#cotizar', label: 'Cotizar' },
 ]
 
-export function Nav() {
+export function Nav({ builder }: { builder: Builder }) {
   const [solid, setSolid] = useState(false)
 
   useEffect(() => {
@@ -43,14 +44,9 @@ export function Nav() {
           </ul>
         </nav>
 
-        <a
-          className="btn btn--primary nav__cta"
-          href={CONTACT_URL}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+        <QuoteLink builder={builder} className="btn btn--primary nav__cta">
           Cotizar
-        </a>
+        </QuoteLink>
       </div>
     </header>
   )
