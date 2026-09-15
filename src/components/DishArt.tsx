@@ -27,20 +27,20 @@ type Palette = { bg: string; shape: string; shape2: string; line: string; num: s
 
 const PALETTES: Record<CourseId, Palette[]> = {
   entrada: [
-    { bg: '#0b2e2c', shape: '#0f3e3b', shape2: '#e2662a', line: '#f3e7d3', num: '#17605b' },
-    { bg: '#07201f', shape: '#17605b', shape2: '#5e1729', line: '#f3e7d3', num: '#0f3e3b' },
+    { bg: '#004c45', shape: '#00312c', shape2: '#ff8040', line: '#f3efe4', num: '#0a655b' },
+    { bg: '#00312c', shape: '#0a655b', shape2: '#8a1e40', line: '#f3efe4', num: '#004c45' },
   ],
   fuerte: [
-    { bg: '#5e1729', shape: '#3f0f1c', shape2: '#e2662a', line: '#f3e7d3', num: '#7c1f34' },
-    { bg: '#3f0f1c', shape: '#7c1f34', shape2: '#0f3e3b', line: '#f3e7d3', num: '#5e1729' },
+    { bg: '#8a1e40', shape: '#4e1024', shape2: '#ff8040', line: '#f3efe4', num: '#a13a58' },
+    { bg: '#4e1024', shape: '#8a1e40', shape2: '#004c45', line: '#f3efe4', num: '#6b1731' },
   ],
   acompanamiento: [
-    { bg: '#0f3e3b', shape: '#17605b', shape2: '#e2662a', line: '#f3e7d3', num: '#0b2e2c' },
-    { bg: '#17605b', shape: '#0b2e2c', shape2: '#f3e7d3', line: '#f3e7d3', num: '#0f3e3b' },
+    { bg: '#0a655b', shape: '#004c45', shape2: '#f5abb8', line: '#f3efe4', num: '#00312c' },
+    { bg: '#004c45', shape: '#00312c', shape2: '#f5abb8', line: '#f3efe4', num: '#0a655b' },
   ],
   postre: [
-    { bg: '#e2662a', shape: '#5e1729', shape2: '#f3e7d3', line: '#3f0f1c', num: '#f0813c' },
-    { bg: '#f3e7d3', shape: '#e2662a', shape2: '#5e1729', line: '#3f0f1c', num: '#e6d4b8' },
+    { bg: '#ff8040', shape: '#8a1e40', shape2: '#f3efe4', line: '#101021', num: '#ff9a63' },
+    { bg: '#f5abb8', shape: '#8a1e40', shape2: '#ff8040', line: '#101021', num: '#f8bfc9' },
   ],
 }
 

@@ -1,26 +1,38 @@
 .foot {
-  background: var(--petrol-900);
+  position: relative;
+  overflow: hidden;
+  background: var(--petrol-deep);
   border-top: 1px solid var(--rule);
   padding-block: var(--space-l) var(--space-xl);
 }
 
+.foot__pattern {
+  --pattern-ink: var(--cream);
+  --pattern-alpha: 0.07;
+  --pattern-size: clamp(72px, 10vw, 96px);
+}
+
 .foot__inner {
+  position: relative;
   display: grid;
   gap: var(--space-m);
 }
 
-.foot__name {
-  font-family: var(--font-display);
-  font-size: var(--step-3);
-  font-weight: 700;
-  text-transform: uppercase;
-  line-height: 1;
+.foot__brand {
+  display: grid;
+  gap: var(--space-2xs);
+  justify-items: start;
 }
 
-.foot__script {
-  font-size: var(--step-2);
-  color: var(--orange);
-  line-height: 1;
+.foot__logo {
+  width: clamp(180px, 46vw, 260px);
+  height: auto;
+}
+
+.foot__firma {
+  width: clamp(140px, 34vw, 190px);
+  height: auto;
+  opacity: 0.75;
 }
 
 .foot__data {

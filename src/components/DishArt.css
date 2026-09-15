@@ -3,7 +3,7 @@
   height: 100%;
   display: block;
   object-fit: cover;
-  background-color: var(--petrol-900);
+  background-color: var(--petrol-deep);
 }
 
 .dish-art--card {

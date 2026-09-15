@@ -1,6 +1,6 @@
 .menu {
   padding-top: var(--space-xl);
-  background: var(--ink);
+  background: var(--night);
 }
 
 .menu__head {
@@ -23,7 +23,7 @@
   position: sticky;
   top: 4.25rem;
   z-index: 90;
-  background: var(--ink);
+  background: var(--night);
   border-block: 1px solid var(--rule);
 }
 
@@ -76,10 +76,25 @@
 
 /* ── Panel ───────────────────────────────────────────────── */
 .menu__panel {
+  position: relative;
+  overflow: hidden;
   padding-block: var(--space-l) var(--space-xl);
   background:
-    linear-gradient(180deg, color-mix(in srgb, var(--course-bg) 34%, transparent) 0%, transparent 380px),
-    var(--ink);
+    linear-gradient(180deg, color-mix(in srgb, var(--course-bg) 38%, transparent) 0%, transparent 420px),
+    var(--night);
+}
+
+.menu__pattern {
+  /* Tapiza el panel entero: recortarlo a media altura dejaba un canto visible */
+  /* En crema se lee sobre el fondo oscuro; teñido del color de la
+     sección quedaba invisible contra su propio degradado. */
+  --pattern-ink: var(--cream);
+  --pattern-alpha: 0.055;
+  --pattern-size: clamp(72px, 10vw, 100px);
+}
+
+.menu__panel-inner {
+  position: relative;
 }
 
 .menu__panel:focus {
@@ -163,7 +178,7 @@
 .menu__group.is-active {
   background: var(--cream);
   border-color: var(--cream);
-  color: var(--ink);
+  color: var(--night);
 }
 
 @media (hover: hover) {

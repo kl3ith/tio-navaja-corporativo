@@ -2,7 +2,7 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  background: var(--ink-soft);
+  background: var(--night-soft);
   border: 1px solid var(--rule);
   transition: border-color var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
@@ -11,7 +11,7 @@
   border-color: var(--orange);
 }
 .card--extra {
-  border-color: var(--wine-500);
+  border-color: var(--wine);
   border-style: dashed;
 }
 
@@ -21,7 +21,7 @@
     border-color: var(--rule-strong);
   }
   .card--in:hover {
-    border-color: var(--orange-bright);
+    border-color: var(--orange);
   }
 }
 
@@ -36,7 +36,7 @@
   top: 0;
   left: 0;
   background: var(--orange);
-  color: var(--ink);
+  color: var(--night);
   font-size: 0.66rem;
   font-weight: 700;
   letter-spacing: 0.18em;
@@ -45,7 +45,7 @@
 }
 
 .card__badge--extra {
-  background: var(--wine-500);
+  background: var(--wine);
   color: var(--cream);
 }
 
@@ -57,7 +57,7 @@
   height: var(--tap);
   display: grid;
   place-items: center;
-  background: rgba(10, 10, 10, 0.72);
+  background: rgba(16, 16, 33, 0.74);
   color: var(--cream);
   border: 0;
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
@@ -66,7 +66,7 @@
 @media (hover: hover) {
   .card__zoom:hover {
     background: var(--orange);
-    color: var(--ink);
+    color: var(--night);
   }
 }
 
@@ -80,8 +80,11 @@
 }
 
 .card__name {
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: var(--step-1);
-  line-height: 1.12;
+  line-height: 1.18;
+  letter-spacing: -0.01em;
 }
 
 .card__name-btn {
@@ -134,7 +137,7 @@
   height: 26px;
   border-radius: 50%;
   background: var(--cream);
-  color: var(--ink);
+  color: var(--night);
   flex: 0 0 auto;
 }
 
@@ -142,21 +145,21 @@
 .card--extra .card__action {
   background: var(--orange);
   border-color: var(--orange);
-  color: var(--ink);
+  color: var(--night);
 }
 .card--in .card__action-icon,
 .card--extra .card__action-icon {
-  background: var(--ink);
+  background: var(--night);
   color: var(--orange);
 }
 .card--extra .card__action {
-  background: var(--wine-500);
-  border-color: var(--wine-500);
+  background: var(--wine);
+  border-color: var(--wine);
   color: var(--cream);
 }
 .card--extra .card__action-icon {
   background: var(--cream);
-  color: var(--wine-700);
+  color: var(--wine);
 }
 
 @media (hover: hover) {
@@ -168,6 +171,6 @@
   .card--extra .card__action:hover {
     background: var(--cream);
     border-color: var(--cream);
-    color: var(--ink);
+    color: var(--night);
   }
 }

@@ -1,8 +1,19 @@
 .packages {
+  position: relative;
+  overflow: hidden;
   padding-block: var(--space-xl);
-  background:
-    radial-gradient(90% 60% at 12% 0%, var(--wine-900) 0%, transparent 60%),
-    var(--ink);
+  /* El vino de los fondos oficiales */
+  background: var(--wine);
+}
+
+.packages__pattern {
+  --pattern-ink: var(--night);
+  --pattern-alpha: 0.13;
+  --pattern-size: clamp(84px, 12vw, 120px);
+}
+
+.packages__inner {
+  position: relative;
 }
 
 .packages__head {
@@ -17,7 +28,7 @@
 
 .packages__sub {
   max-width: 42ch;
-  color: var(--fg-muted);
+  color: var(--cream-dim);
 }
 
 .packages__grid {
@@ -32,7 +43,7 @@
   gap: var(--space-xs);
   padding: var(--space-m) var(--space-s) var(--space-m);
   text-align: left;
-  background: var(--ink-soft);
+  background: var(--wine-deep);
   border: 1px solid var(--rule);
   color: var(--cream);
   overflow: hidden;
@@ -51,7 +62,7 @@
   top: -60px;
   width: 140px;
   height: 140px;
-  background: var(--petrol-800);
+  background: var(--petrol);
   transform: rotate(45deg);
   transition: background-color var(--dur) var(--ease);
 }
@@ -59,7 +70,7 @@
 .pkg.is-active {
   background: var(--cream);
   border-color: var(--cream);
-  color: var(--wine-900);
+  color: var(--wine-deep);
   transform: translateY(-4px);
 }
 .pkg.is-active::after {
@@ -68,7 +79,7 @@
 
 @media (hover: hover) {
   .pkg:not(.is-active):hover {
-    border-color: var(--orange);
+    border-color: var(--pink);
     transform: translateY(-2px);
   }
 }
@@ -86,8 +97,8 @@
   color: var(--fg-muted);
 }
 .pkg.is-active .pkg__tag {
-  background: var(--wine-700);
-  border-color: var(--wine-700);
+  background: var(--wine);
+  border-color: var(--wine);
   color: var(--cream);
 }
 
@@ -105,7 +116,7 @@
   color: var(--orange);
 }
 .pkg.is-active .pkg__currency {
-  color: var(--wine-700);
+  color: var(--wine);
 }
 
 .pkg__amount {
@@ -114,12 +125,12 @@
 }
 
 .pkg__name {
-  font-size: var(--step-2);
-  color: var(--orange);
+  font-size: calc(var(--step-2) * 1.15);
+  color: var(--pink);
   line-height: 1;
 }
 .pkg.is-active .pkg__name {
-  color: var(--wine-700);
+  color: var(--wine);
 }
 
 .pkg__list {
@@ -159,7 +170,7 @@
   top: 0.75rem;
   right: 0.75rem;
   z-index: 1;
-  color: var(--ink);
+  color: var(--night);
   opacity: 0;
   transform: scale(0.6);
   transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease);
@@ -182,7 +193,7 @@
 
 .packages__hint {
   flex: 1 1 18rem;
-  color: var(--fg-muted);
+  color: var(--cream-dim);
   font-size: var(--step--1);
 }
 .packages__hint strong {

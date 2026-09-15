@@ -111,7 +111,42 @@ src/
 
 ## Dirección de arte
 
-Editorial, nocturna y panameña. Verde petróleo, vino, naranja, crema y negro;
-serif de revista para los titulares, grotesca para la interfaz y manuscrita
-para los acentos. Composición asimétrica, numeración, marcos y recortes.
-Sin glassmorphism, sin degradados genéricos, sin tarjetas todas iguales.
+La identidad es la del propio Tío Navaja, no una interpretación: los colores
+salen de sus fondos oficiales y la tipografía es la de su logotipo.
+
+| Color | Hex | De dónde sale |
+|---|---|---|
+| Verde petróleo | `#004C45` | el fondo de todos los patrones oficiales |
+| Vino | `#8A1E40` | el fondo de palmeras BG2 |
+| Naranja | `#FF8040` | los cangrejos de BG3 |
+| Rosa | `#F5ABB8` | el fondo de culantro BG5 |
+| Noche | `#101021` | la tinta del logotipo |
+| Crema | `#F3EFE4` | los elementos gráficos |
+
+**Tipografías** (`src/assets/fonts/`, subconjuntadas a latín, 92 kB en total):
+
+- **Chrone** — la del logotipo. Es *unicase*: sólo dibuja capitales, así que
+  va en titulares cortos y nunca en texto corrido.
+- **DM Sans** (variable) — interfaz y lectura.
+- **Michigan Signature** — la firma manuscrita de la marca, para acentos.
+
+**Elementos** (`src/assets/brand/`, generados con `assets-src/build-brand.py`
+desde la carpeta *Logos y Elementos* del cliente):
+
+- Logotipos en tinta plana (crema y noche) — van como `<img>` a propósito: si
+  el navegador no soportara `mask-image`, el logotipo desaparecería.
+- El personaje del Tío, en dos versiones: recoloreado en crema para fondos
+  oscuros y en su tinta original para los claros.
+- Motivos de los fondos oficiales (palmera, átomo, bombilla, navaja) como
+  máscaras monocromas: el color lo pone el CSS, así que el mismo archivo
+  tapiza la portada en crema y el cierre en vino.
+
+Cada sección toma un color y un motivo de la casa: portada en verde con
+palmeras, paquetes en vino, el menú tiñe su panel según el tiempo, y el cierre
+va en naranja con átomos — el guiño a la Cabeza de Einstein que está enfrente
+del local.
+
+**Licencia de las tipografías:** DM Sans es OFL. Chrone y Michigan Signature
+son comerciales y se autoalojan porque el cliente entregó el archivo para su
+propia marca; si el sitio se publica fuera de Tío Navaja hay que revisar esa
+licencia.

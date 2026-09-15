@@ -2,14 +2,20 @@
   position: relative;
   overflow: hidden;
   padding-block: var(--space-l) 0;
-  background:
-    radial-gradient(120% 80% at 82% 6%, var(--petrol-900) 0%, transparent 62%),
-    var(--ink);
+  /* El verde de los fondos oficiales de la marca */
+  background: var(--petrol);
+}
+
+.cover__pattern {
+  --pattern-ink: var(--cream);
+  --pattern-alpha: 0.085;
+  --pattern-size: clamp(88px, 13vw, 132px);
 }
 
 .cover__inner {
+  position: relative;
   display: grid;
-  gap: var(--space-l);
+  gap: var(--space-m);
   padding-bottom: var(--space-xl);
 }
 
@@ -19,7 +25,7 @@
   align-items: center;
   gap: 0.75rem;
   margin-bottom: var(--space-m);
-  color: var(--orange);
+  color: var(--pink);
 }
 .cover__eyebrow::after {
   content: '';
@@ -29,20 +35,12 @@
 }
 
 .cover__title {
-  font-size: var(--step-5);
-  text-transform: uppercase;
-  letter-spacing: -0.03em;
   margin-bottom: var(--space-s);
 }
 
-.cover__title-line {
-  display: block;
-}
-
-.cover__title-line--offset {
-  margin-left: 0.32em;
-  color: transparent;
-  -webkit-text-stroke: 2px var(--cream);
+.cover__title img {
+  width: min(100%, 26rem);
+  height: auto;
 }
 
 .cover__lede {
@@ -60,21 +58,20 @@
 
 .cover__quote {
   position: relative;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: 300;
   font-size: var(--step-2);
-  font-style: italic;
-  line-height: 1.32;
+  line-height: 1.34;
   color: var(--cream);
   max-width: 24ch;
   margin-bottom: var(--space-l);
-  /* Deja sitio a la comilla volada: a 320 px no debe salirse del margen */
   padding-left: 0.55em;
 }
 
 .cover__quote-mark {
   font-size: 2.4em;
   line-height: 0;
-  color: var(--wine-500);
+  color: var(--pink);
   position: absolute;
   left: -0.06em;
   top: 0.42em;
@@ -89,60 +86,40 @@
 
 .cover__meta {
   font-size: var(--step--1);
-  color: var(--fg-faint);
+  color: var(--cream-dim);
   letter-spacing: 0.08em;
 }
 
-/* ── Collage ─────────────────────────────────────────────── */
-.cover__collage {
+/* ── El Tío ──────────────────────────────────────────────── */
+.cover__art {
   position: relative;
-  height: clamp(300px, 64vw, 420px);
-  margin-inline: calc(var(--gutter) * -0.35);
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  min-height: clamp(280px, 62vw, 420px);
 }
 
-.cover__plate {
+.cover__tio {
+  width: clamp(190px, 46vw, 300px);
+  height: auto;
+  filter: drop-shadow(14px 16px 0 rgba(0, 49, 44, 0.55));
+}
+
+.cover__emc {
   position: absolute;
-  overflow: hidden;
-  border: 1px solid var(--rule-strong);
-  box-shadow: 14px 16px 0 rgba(7, 32, 31, 0.55);
-}
-
-.cover__plate--1 {
-  width: 46%;
-  left: 2%;
+  right: 0;
   top: 0;
-  transform: rotate(-4deg);
-  z-index: 2;
-}
-.cover__plate--2 {
-  width: 44%;
-  right: 3%;
-  top: 12%;
-  transform: rotate(5deg);
-  z-index: 1;
-}
-.cover__plate--3 {
-  width: 38%;
-  left: 27%;
-  bottom: 0;
-  transform: rotate(-1deg);
-  z-index: 3;
-}
-
-.cover__stamp {
-  position: absolute;
-  right: 6%;
-  bottom: 4%;
-  z-index: 4;
-  font-size: clamp(1.6rem, 6vw, 2.4rem);
-  color: var(--orange);
+  width: clamp(96px, 23vw, 150px);
+  height: auto;
+  opacity: 0.8;
   transform: rotate(-8deg);
 }
 
 /* ── Cinta inferior ──────────────────────────────────────── */
 .cover__ticker {
-  border-block: 1px solid var(--rule);
-  background: var(--wine-900);
+  position: relative;
+  border-block: 1px solid rgba(243, 239, 228, 0.24);
+  background: var(--wine);
   overflow: hidden;
   padding-block: 0.7rem;
 }
@@ -156,12 +133,12 @@
   font-weight: 600;
   letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: var(--cream-dim);
+  color: var(--cream);
   animation: cover-marquee 28s linear infinite;
 }
 
 .cover__ticker-track i {
-  color: var(--orange);
+  color: var(--pink);
   font-style: normal;
 }
 
@@ -177,22 +154,21 @@
   }
 }
 
-/* ── Desktop: dos columnas asimétricas ───────────────────── */
+/* ── Desktop ─────────────────────────────────────────────── */
 @media (min-width: 900px) {
   .cover {
     padding-top: var(--space-xl);
   }
   .cover__inner {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
     align-items: center;
     gap: var(--space-xl);
     padding-bottom: var(--space-2xl);
   }
-  .cover__collage {
-    height: clamp(460px, 42vw, 620px);
-    margin-inline: 0;
+  .cover__art {
+    min-height: clamp(440px, 42vw, 580px);
   }
-  .cover__quote {
-    max-width: 20ch;
+  .cover__tio {
+    width: clamp(260px, 26vw, 360px);
   }
 }

@@ -5,7 +5,7 @@
   right: 0;
   bottom: 0;
   z-index: 110;
-  background: var(--wine-900);
+  background: var(--wine-deep);
   border-top: 2px solid var(--orange);
   padding-bottom: env(safe-area-inset-bottom);
   transform: translateY(110%);
@@ -57,7 +57,7 @@
 }
 
 .tray__extra {
-  color: var(--ink);
+  color: var(--night);
   background: var(--cream);
   padding: 0.1rem 0.35rem;
   letter-spacing: 0.1em;
@@ -116,7 +116,7 @@
   min-width: 1.5rem;
   height: 1.5rem;
   padding-inline: 0.3rem;
-  background: var(--ink);
+  background: var(--night);
   color: var(--orange);
   font-size: 0.78rem;
 }
@@ -168,6 +168,7 @@
 .sheet__title {
   font-size: var(--step-3);
   margin-top: var(--space-3xs);
+  letter-spacing: 0.01em;
 }
 
 .sheet__close {
@@ -184,7 +185,7 @@
 @media (hover: hover) {
   .sheet__close:hover {
     background: var(--orange);
-    color: var(--ink);
+    color: var(--night);
     border-color: var(--orange);
   }
 }
@@ -213,7 +214,7 @@
 }
 .sheet__pkg.is-active {
   background: var(--orange);
-  color: var(--ink);
+  color: var(--night);
 }
 
 .sheet__courses {
@@ -291,7 +292,7 @@
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: var(--cream);
-  background: var(--wine-500);
+  background: var(--wine);
   padding: 0.2rem 0.45rem;
 }
 
@@ -323,7 +324,7 @@
 .sheet__warn {
   font-size: var(--step--1);
   line-height: 1.55;
-  background: var(--wine-700);
+  background: var(--wine);
   border-left: 3px solid var(--orange);
   padding: var(--space-xs);
 }

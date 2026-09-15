@@ -1,0 +1,75 @@
+/* =========================================================
+   Activos de marca: tipografías, logotipos y patrones.
+   Todo local — las fuentes van subconjuntadas a latín y los
+   logotipos son máscaras, así que el color lo pone el CSS.
+   ========================================================= */
+
+@font-face {
+  font-family: 'Chrone';
+  src: url('../assets/fonts/chrone.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Sans';
+  src: url('../assets/fonts/dmsans-var.woff2') format('woff2-variations');
+  font-weight: 100 1000;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Michigan Signature';
+  src: url('../assets/fonts/michigan.woff2') format('woff2');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ── Patrones ────────────────────────────────────────────
+   Los mismos motivos de los fondos oficiales, teñidos con
+   el color que toque en cada sección. Las clases `pattern--*`
+   sólo aportan la imagen: combinadas con `.pattern` tapizan
+   un bloque, y solas sirven como icono suelto.              */
+.pattern {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-color: var(--pattern-ink, var(--cream));
+  opacity: var(--pattern-alpha, 0.1);
+  -webkit-mask-repeat: repeat;
+  mask-repeat: repeat;
+  -webkit-mask-size: var(--pattern-size, 96px);
+  mask-size: var(--pattern-size, 96px);
+}
+
+.pattern--palmera {
+  -webkit-mask-image: url('../assets/brand/motivo-palmera.png');
+  mask-image: url('../assets/brand/motivo-palmera.png');
+}
+
+.pattern--atomo {
+  -webkit-mask-image: url('../assets/brand/motivo-atomo.png');
+  mask-image: url('../assets/brand/motivo-atomo.png');
+}
+
+.pattern--bombilla {
+  -webkit-mask-image: url('../assets/brand/motivo-bombilla.png');
+  mask-image: url('../assets/brand/motivo-bombilla.png');
+}
+
+.pattern--navaja {
+  -webkit-mask-image: url('../assets/brand/motivo-navaja.png');
+  mask-image: url('../assets/brand/motivo-navaja.png');
+}
+
+/* Si el navegador no soporta máscaras, el patrón sobra: fuera. */
+/* Si el navegador no soporta máscaras, el patrón es decoración: fuera.
+   Los logotipos no dependen de esto — van como <img> con su propia tinta. */
+@supports not ((-webkit-mask-image: url('')) or (mask-image: url(''))) {
+  .pattern {
+    display: none;
+  }
+}

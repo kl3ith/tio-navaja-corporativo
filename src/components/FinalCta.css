@@ -1,71 +1,61 @@
 .final {
   position: relative;
+  /* El naranja del cangrejo, a página completa */
   background: var(--orange);
-  color: var(--wine-900);
+  color: var(--night);
   padding-block: var(--space-xl);
   overflow: hidden;
 }
 
-.final::before {
-  content: '';
-  position: absolute;
-  right: -12%;
-  top: -30%;
-  width: 60vw;
-  height: 60vw;
-  max-width: 620px;
-  max-height: 620px;
-  border: 2px solid rgba(63, 15, 28, 0.28);
-  border-radius: 50%;
-  pointer-events: none;
+.final__pattern {
+  --pattern-ink: var(--wine-deep);
+  --pattern-alpha: 0.12;
+  --pattern-size: clamp(76px, 11vw, 104px);
 }
 
 .final__inner {
   position: relative;
+  display: grid;
+  gap: var(--space-l);
 }
 
 .final__title {
-  font-size: var(--step-4);
-  text-transform: uppercase;
-  max-width: 16ch;
+  font-size: var(--step-3);
+  max-width: 20ch;
   margin-bottom: var(--space-m);
 }
 
 .final__title em {
-  font-style: italic;
-  text-transform: none;
-  /* Verde petróleo sobre naranja: 4.99:1. El crema sólo llegaba a 2.79:1 */
-  color: var(--petrol-900);
+  /* Crema sobre naranja no llega a 3:1; el verde de la casa sí (4.99:1) */
+  font-style: normal;
+  color: var(--petrol-deep);
 }
 
 .final__lines {
   display: grid;
   gap: 0.1rem;
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
+  font-weight: 300;
   font-size: var(--step-2);
-  font-style: italic;
   line-height: 1.3;
   margin-bottom: var(--space-m);
-  color: var(--wine-900);
+  color: var(--wine-deep);
 }
 
 .final__claim {
   display: grid;
-  font-family: var(--font-sans);
-  font-size: var(--step-1);
-  font-weight: 800;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  line-height: 1.16;
-  border-top: 2px solid var(--wine-900);
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.12;
+  border-top: 2px solid var(--night);
   padding-top: var(--space-s);
   margin-bottom: var(--space-l);
-  max-width: 34ch;
+  max-width: 24ch;
   text-wrap: balance;
 }
 
 .final__claim-alt {
-  color: var(--petrol-900);
+  color: var(--petrol-deep);
 }
 
 .final__actions {
@@ -84,14 +74,42 @@
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--wine-900);
+  color: var(--wine-deep);
+}
+
+/* ── El Tío firma el cierre ──────────────────────────────── */
+.final__art {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2xs);
+}
+
+.final__tio {
+  width: clamp(170px, 42vw, 250px);
+  height: auto;
+}
+
+/* La firma remata debajo del Tío: encima le tapaba la figura */
+.final__firma {
+  width: clamp(150px, 36vw, 220px);
+  height: auto;
+  transform: rotate(-4deg);
 }
 
 @media (min-width: 900px) {
   .final {
     padding-block: var(--space-2xl);
   }
+  .final__inner {
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+    align-items: center;
+    gap: var(--space-xl);
+  }
   .final__title {
-    font-size: var(--step-5);
+    font-size: var(--step-4);
+  }
+  .final__tio {
+    width: clamp(220px, 22vw, 300px);
   }
 }

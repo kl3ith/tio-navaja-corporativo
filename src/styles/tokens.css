@@ -1,46 +1,44 @@
 /* =========================================================
    TÍO NAVAJA · Menú corporativo
-   Tokens de marca. Ningún componente usa hex crudos.
+   Tokens tomados de la identidad real de la marca:
+   los colores salen de los fondos oficiales (BG1–BG5) y la
+   tinta del logotipo. Ningún componente usa hex crudos.
    ========================================================= */
 :root {
-  /* ── Color ───────────────────────────────────────────── */
-  --ink: #0a0a0a;
-  --ink-soft: #141312;
+  /* ── Color de marca ──────────────────────────────────── */
+  --night: #101021; /* tinta del logotipo */
+  --night-soft: #191930;
 
-  --petrol-900: #07201f;
-  --petrol-800: #0b2e2c;
-  --petrol-700: #0f3e3b;
-  --petrol-500: #17605b;
+  --petrol: #004c45; /* el verde de todos los fondos oficiales */
+  --petrol-deep: #00312c;
+  --petrol-soft: #0a655b;
 
-  --wine-900: #3f0f1c;
-  --wine-700: #5e1729;
-  --wine-500: #7c1f34;
+  --wine: #8a1e40;
+  --wine-deep: #4e1024;
 
-  --orange: #e2662a;
-  --orange-bright: #f0813c;
+  --orange: #ff8040; /* el naranja del cangrejo */
+  --pink: #f5abb8;
 
-  --cream: #f3e7d3;
-  --cream-dim: #cfc0a8;
-  --cream-faint: #978b79;
+  --cream: #f3efe4;
+  --cream-dim: #cdc6b6;
+  --cream-faint: #9a9384;
 
-  /* Roles semánticos */
-  --bg: var(--ink);
+  /* ── Roles ───────────────────────────────────────────── */
+  --bg: var(--night);
   --fg: var(--cream);
   --fg-muted: var(--cream-dim);
   --fg-faint: var(--cream-faint);
   --accent: var(--orange);
-  --accent-on: var(--ink);
-  --rule: rgba(243, 231, 211, 0.18);
-  --rule-strong: rgba(243, 231, 211, 0.4);
-  --focus: var(--orange-bright);
+  --rule: rgba(243, 239, 228, 0.2);
+  --rule-strong: rgba(243, 239, 228, 0.42);
+  --focus: var(--orange);
 
-  /* ── Tipografía ──────────────────────────────────────── */
-  --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
-  --font-sans: 'Archivo', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --font-script: 'Caveat', 'Bradley Hand', cursive;
+  /* ── Tipografía de marca ─────────────────────────────── */
+  --font-display: 'Chrone', 'Times New Roman', serif; /* la del logotipo */
+  --font-sans: 'DM Sans', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  --font-script: 'Michigan Signature', 'Bradley Hand', cursive;
 
-  /* Escala fluida — mobile-first, sin saltos bruscos */
-  --step--1: clamp(0.78rem, 0.75rem + 0.15vw, 0.86rem);
+  --step--1: clamp(0.8rem, 0.77rem + 0.15vw, 0.88rem);
   --step-0: clamp(1rem, 0.96rem + 0.2vw, 1.09rem);
   --step-1: clamp(1.2rem, 1.1rem + 0.5vw, 1.45rem);
   --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.05rem);
@@ -58,7 +56,6 @@
   --space-xl: 4rem;
   --space-2xl: 6rem;
 
-  /* ── Otros ───────────────────────────────────────────── */
   --maxw: 1240px;
   --gutter: clamp(1.15rem, 4vw, 3.5rem);
   --tap: 44px;
@@ -67,28 +64,27 @@
   --dur-slow: 420ms;
   --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
 
-  /* Grano de papel: SVG en data-URI, sin peticiones externas */
   --grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.86' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.42'/%3E%3C/svg%3E");
 }
 
-/* Colores por tiempo/sección — identifican cada familia del menú */
+/* Colores por tiempo del menú, dentro de la paleta de la casa */
 [data-course='entrada'] {
-  --course-bg: var(--petrol-800);
-  --course-ink: var(--petrol-900);
-  --course-pop: var(--orange);
+  --course-bg: var(--petrol);
+  --course-deep: var(--petrol-deep);
+  --course-pop: var(--pink);
 }
 [data-course='fuerte'] {
-  --course-bg: var(--wine-700);
-  --course-ink: var(--wine-900);
-  --course-pop: var(--cream);
+  --course-bg: var(--wine);
+  --course-deep: var(--wine-deep);
+  --course-pop: var(--pink);
 }
 [data-course='acompanamiento'] {
-  --course-bg: var(--petrol-500);
-  --course-ink: var(--petrol-700);
+  --course-bg: var(--petrol-soft);
+  --course-deep: var(--petrol-deep);
   --course-pop: var(--cream);
 }
 [data-course='postre'] {
   --course-bg: var(--orange);
-  --course-ink: var(--wine-700);
-  --course-pop: var(--wine-900);
+  --course-deep: var(--wine-deep);
+  --course-pop: var(--wine-deep);
 }

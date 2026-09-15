@@ -251,6 +251,8 @@ export interface SectionDef {
   index: string
   course: CourseId
   kicker: string
+  /** Motivo de la marca que tapiza el panel de la sección. */
+  motif: 'palmera' | 'navaja' | 'atomo' | 'bombilla'
   groups?: { id: GroupId; label: string }[]
 }
 
@@ -261,6 +263,7 @@ export const SECTIONS: SectionDef[] = [
     index: '01',
     course: 'entrada',
     kicker: 'Para romper el hielo',
+    motif: 'palmera',
     groups: [
       { id: 'frias', label: 'Frías' },
       { id: 'calientes', label: 'Calientes' },
@@ -272,6 +275,7 @@ export const SECTIONS: SectionDef[] = [
     index: '02',
     course: 'fuerte',
     kicker: 'El plato fuerte de la mesa',
+    motif: 'navaja',
   },
   {
     id: 'acompanamientos',
@@ -279,6 +283,7 @@ export const SECTIONS: SectionDef[] = [
     index: '03',
     course: 'acompanamiento',
     kicker: 'Lo que redondea el plato',
+    motif: 'atomo',
   },
   {
     id: 'postres',
@@ -286,6 +291,7 @@ export const SECTIONS: SectionDef[] = [
     index: '04',
     course: 'postre',
     kicker: 'El cierre dulce',
+    motif: 'bombilla',
   },
 ]
 

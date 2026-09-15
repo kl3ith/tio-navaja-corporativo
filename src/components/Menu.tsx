@@ -159,7 +159,11 @@ export function Menu({ builder }: Props) {
         tabIndex={-1}
         data-course={current.course}
       >
-        <div className="u-wrap">
+        <span
+          className={`pattern pattern--${current.motif} menu__pattern`}
+          aria-hidden="true"
+        />
+        <div className="u-wrap menu__panel-inner">
           <div className="menu__section-head">
             <div>
               <p className="menu__kicker u-script">{current.kicker}</p>

@@ -23,7 +23,8 @@ export function Packages({ builder }: Props) {
 
   return (
     <section className="packages" id="paquetes" aria-labelledby="packages-title">
-      <div className="u-wrap">
+      <span className="pattern pattern--palmera packages__pattern" aria-hidden="true" />
+      <div className="u-wrap packages__inner">
         <header className="packages__head reveal">
           <p className="u-kicker">Dos formatos</p>
           <h2 className="packages__title" id="packages-title">

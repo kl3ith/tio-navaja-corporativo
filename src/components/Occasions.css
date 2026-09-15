@@ -5,19 +5,18 @@
 
 .occasions__head {
   margin-bottom: var(--space-l);
-  max-width: 22ch;
+  max-width: 24ch;
 }
 
 .occasions__title {
   font-size: var(--step-4);
-  text-transform: uppercase;
   margin-top: var(--space-2xs);
 }
 
 .occasions__title em {
-  font-style: italic;
-  text-transform: none;
+  font-size: 1.15em;
   color: var(--orange);
+  font-style: normal;
 }
 
 .occasions__grid {
@@ -26,6 +25,7 @@
   gap: var(--space-2xs);
 }
 
+/* ── Tonos de marca por tarjeta ──────────────────────────── */
 .occasions__item {
   position: relative;
   display: flex;
@@ -34,43 +34,61 @@
   gap: var(--space-xs);
   min-height: 42vw;
   padding: var(--space-s);
-  background: var(--course-bg);
-  color: var(--cream);
   overflow: hidden;
 }
 
-/* Rompe la cuadrícula: dos piezas más altas, composición asimétrica */
+.occasions__item[data-tone='petrol'] {
+  background: var(--petrol);
+  color: var(--cream);
+  --motif-ink: var(--pink);
+}
+.occasions__item[data-tone='wine'] {
+  background: var(--wine);
+  color: var(--cream);
+  --motif-ink: var(--pink);
+}
+.occasions__item[data-tone='orange'] {
+  background: var(--orange);
+  color: var(--night);
+  --motif-ink: var(--wine-deep);
+}
+.occasions__item[data-tone='pink'] {
+  background: var(--pink);
+  color: var(--night);
+  --motif-ink: var(--wine);
+}
+
+/* Rompe la cuadrícula: dos piezas bajan, composición asimétrica */
 .occasions__item:nth-child(2),
 .occasions__item:nth-child(3) {
   margin-top: var(--space-m);
 }
 
-.occasions__item[data-course='postre'] {
-  color: var(--wine-900);
-}
-
 .occasions__index {
   position: absolute;
-  top: 0.35rem;
+  top: 0.3rem;
   right: 0.7rem;
   font-family: var(--font-display);
   font-size: clamp(3.5rem, 14vw, 6rem);
-  font-weight: 700;
   line-height: 1;
-  opacity: 0.22;
+  opacity: 0.2;
 }
 
-.occasions__icon {
-  width: clamp(48px, 13vw, 72px);
-  height: auto;
-  color: var(--course-pop);
+.occasions__motif {
+  width: clamp(46px, 12vw, 68px);
+  aspect-ratio: 1;
+  background-color: var(--motif-ink);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
 }
 
 .occasions__label {
-  /* Debe caber en media columna a 360 px sin recortarse */
   font-size: clamp(0.95rem, 3.9vw, 1.45rem);
-  text-transform: uppercase;
-  letter-spacing: -0.015em;
+  letter-spacing: 0.01em;
   overflow-wrap: break-word;
   hyphens: auto;
 }
@@ -80,7 +98,7 @@
   max-width: 44ch;
   font-size: var(--step--1);
   color: var(--fg-faint);
-  border-left: 2px solid var(--wine-500);
+  border-left: 2px solid var(--wine);
   padding-left: var(--space-xs);
 }
 

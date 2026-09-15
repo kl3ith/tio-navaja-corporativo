@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { CONTACT_URL } from '../config'
+import logo from '../assets/brand/logo-horizontal-cream.png'
 import './Nav.css'
 
 const LINKS = [
@@ -22,8 +23,14 @@ export function Nav() {
     <header className={`nav${solid ? ' is-solid' : ''}`}>
       <div className="nav__inner u-wrap">
         <a className="nav__brand" href="#portada">
-          <span className="nav__brand-name">Tío Navaja</span>
-          <span className="nav__brand-sub">Menú corporativo</span>
+          <img
+            className="nav__logo"
+            src={logo}
+            alt="Tío Navaja, El Cangrejo"
+            width={760}
+            height={162}
+          />
+          <span className="nav__sub">Menú corporativo</span>
         </a>
 
         <nav className="nav__links" aria-label="Secciones del brochure">

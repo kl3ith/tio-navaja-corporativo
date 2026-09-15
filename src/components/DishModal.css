@@ -1,7 +1,7 @@
 .dm {
   position: relative;
   display: grid;
-  background: var(--ink);
+  background: var(--night);
   min-height: 100%;
 }
 
@@ -14,7 +14,7 @@
   height: var(--tap);
   display: grid;
   place-items: center;
-  background: var(--ink);
+  background: var(--night);
   color: var(--cream);
   border: 1px solid var(--rule-strong);
   transition: background-color var(--dur) var(--ease), color var(--dur) var(--ease);
@@ -23,7 +23,7 @@
 @media (hover: hover) {
   .dm__close:hover {
     background: var(--orange);
-    color: var(--ink);
+    color: var(--night);
     border-color: var(--orange);
   }
 }
@@ -50,8 +50,11 @@
 }
 
 .dm__title {
+  font-family: var(--font-sans);
+  font-weight: 700;
   font-size: var(--step-3);
-  line-height: 1.04;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
 }
 
 .dm__desc {
@@ -82,7 +85,7 @@
   font-size: var(--step--1);
   line-height: 1.5;
   color: var(--cream);
-  background: var(--wine-700);
+  background: var(--wine);
   border-left: 3px solid var(--orange);
   padding: var(--space-xs);
 }

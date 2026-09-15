@@ -1,13 +1,22 @@
 import { CONTACT_LABEL, CONTACT_URL, VENUE } from '../config'
+import logo from '../assets/brand/logo-horizontal-cream.png'
+import firma from '../assets/brand/firma-cream.png'
 import './Footer.css'
 
 export function Footer() {
   return (
     <footer className="foot">
+      <span className="pattern pattern--bombilla foot__pattern" aria-hidden="true" />
       <div className="u-wrap foot__inner">
         <div className="foot__brand">
-          <p className="foot__name">Tío Navaja</p>
-          <p className="u-script foot__script">buena mesa, buen plan</p>
+          <img
+            className="foot__logo"
+            src={logo}
+            alt="Tío Navaja, El Cangrejo"
+            width={760}
+            height={162}
+          />
+          <img className="foot__firma" src={firma} alt="" width={720} height={133} />
         </div>
 
         <dl className="foot__data">
